@@ -8,7 +8,6 @@ that is my google drive, including **Los and sz, Pems3478, Pems7M, Pems-bay, met
 <div align="center">
 <img src="https://user-images.githubusercontent.com/47129594/125617687-b2aaa3d6-d352-4ab1-b03b-10b52ed4ec30.png" height="330" width="190" title = "List of Datasets">
  </div>
- <center>List of Datasets</center>
 
 # Run
 https://colab.research.google.com/drive/1QOu-thJL2fo-P6O6QeS96weAcmae2hay?usp=sharing
