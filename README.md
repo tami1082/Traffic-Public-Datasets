@@ -17,7 +17,7 @@ that is my google drive, including **Los and sz, Pems3478, Pems7M, Pems-bay, met
 # Run
 https://colab.research.google.com/drive/1QOu-thJL2fo-P6O6QeS96weAcmae2hay?usp=sharing
 
-that is a **coalb version**, that can run the datasets.
+that is a **colab version**, that can run the datasets.
 
 ## Pems-SF
 http://www.timeseriesclassification.com/description.php?Dataset=PEMS-SF
