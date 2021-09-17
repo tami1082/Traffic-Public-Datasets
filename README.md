@@ -39,7 +39,7 @@ The flow data is aggregated to 5 mins, which means there are 12 points in the fl
 Each npz file contains one key, named "data", the shape is (sequence_length, num_of_vertices, num_of_features).
 
  
- ## Pems-07&
+ ## Pems-07
 The flow data is aggregated to 5 mins, which means there are 12 points in the flow data foe each hour. This folder should contain two csv files. One file contains the distances(km) between each pair of vertices, it has n rows and n columns, where n is the number of vertices. The other csv file contains n columns and lots of rows, each row represents a time step, each column represents the time series of a vertice.
 
  ## Pems-07M
