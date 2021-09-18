@@ -17,11 +17,20 @@ As you can see, the first dimension of raw data is that the collected traffic sp
 </div>
 <!-- ![Images](Images/AS_2.jpg)   -->
 
-One week's data is 12×24×7 = 2016, one day's data is 24×12 = 288，one hour's data is 1×12 = 12.  
+One week's data is 12×24×7 = 2016, one day's data is 24×12 = 288，one hour's data is 1×12 = 12. More specifically, see the below table:
+| week   | day | hour |
+| ----   | ----| ---- |
+| 0'week(7 days ago) 8:00-9:00| current week 8:00-9:00 July, 18th | current week 8:00-9:00 July, 19th |  
+
+Above this, the code chooses the same time sequence, but in different days.
 
 The execution process of the code:  
 1. Function: **read_and_generate_dataset()** is used to deal with the several functions and generate the final dataset.  
 2. Function: **get_sample_indices()** is used to generate the index of data.  
 3. Function: **search_data()** is used to gets the data sample from data_seq by the index of data.  
 
-In the first step, data_seq is made up of sequence_length, num_of_vertices, num_of_features. Cos i set the number of week to 1, data_seq[2016] is the starter. Then, code executes to the second step, the start 
+In the first step, data_seq is made up of sequence_length, num_of_vertices, num_of_features. Cos i set the number of week to 1, data_seq[2016] is the starter. Then, code executes to the second step, the start_idx & end_idx (can be seen in func **get_sample_indices()**) are equal to 0 & 12 respectively, which represents the index of week. Finally, go to the thrid step. Using the second index result, week_sample gets the data from the data_seq[0:11,:,:].The other two parts(day and hour) are the same process. day_sample = data_seq[1728:1740,:,:], hour_sample = data_seq[2004:2016,:,:], target = data_seq[2016:2028,:,:]
+
+After the 2 & 3 steps, the code returns to the first step. Now, sample includes week'data, day's data, hours's data and predicted data. Then, transpose the sample's shape from (sequence_length, num_of vertices, number_of_features) to (num_of_vertices, num_of_features, sequence_length). 
+
+Note: in the return step, target original owns three features, but in this process, target only get the target[:,:,0], which owns one feature(speed?). There is a new parameter called time_sample storing the idx(the loop's index/ data's index). 
