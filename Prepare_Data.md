@@ -20,7 +20,7 @@ As you can see, the first dimension of raw data is that the collected traffic sp
 One week's data is 12×24×7 = 2016, one day's data is 24×12 = 288，one hour's data is 1×12 = 12. More specifically, see the below table:
 | week   | day | hour |
 | ----   | ----| ---- |
-| 0'week(7 days ago) 8:00-9:00| current week 8:00-9:00 July, 18th | current week 8:00-9:00 July, 19th |  
+| last week(7 days ago) 8:00-9:00| current week 8:00-9:00 July, 18th | current week 8:00-9:00 July, 19th |  
 
 Above this, the code chooses the same time sequence, but in different days.
 
@@ -34,3 +34,24 @@ In the first step, data_seq is made up of sequence_length, num_of_vertices, num_
 After the 2 & 3 steps, the code returns to the first step. Now, sample includes week'data, day's data, hours's data and predicted data. Then, transpose the sample's shape from (sequence_length, num_of vertices, number_of_features) to (num_of_vertices, num_of_features, sequence_length). 
 
 Note: in the return step, target original owns three features, but in this process, target only get the target[:,:,0], which owns one feature(speed?). There is a new parameter called time_sample storing the idx(the loop's index/ data's index). 
+
+* DCRNN
+
+In Metr-LA, dataframe's size is (34272, 207), the detail is shown in the below pic. There are two functions called **generate_train_val_test()** and **generate_graph_seq2seq_io_data()** respectively.
+
+<div align="center">
+<img src="Images/DC_1.png" width="800" height="240" align="middle" />
+</div>
+
+In **generate_train_val_test()**, x_offsets and y_offsets are built for locating the data's index.  
+|x_offsets|y_offsets|
+|---|---|
+|[-11:0]|[1:12]|  
+
+And step into **generate_graph_seq2seq_io_data()**, dataframe adds a dimension in axis=2, whose(data) size becomes (34272, 207, 1). **time_ind** comes from data's time index divided by a day's second, for example, time index is 5 minutes (300 seconds), and a day's second is 24×60×60 (86400), so 300/68400 = 0.003472, **time_ind** (34272,1) is made up of by this way. **time_in_day** (34272, 207, 1) is made up of by copying **time_ind** 207 times and transposing it into (2,1,0). This process can be represented by the following pic.
+
+<div align="center">
+<img src="Images/DC_2.png" width="375" height="372" align="middle" />
+</div>
+
+Concatenate data and time_in day. After that, use x_offset and y_offset to generate the x and y. Finally, return to **generate_train_val_test()** for split the data into train/val/test.
