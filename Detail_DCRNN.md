@@ -32,7 +32,13 @@ x_t(64,207,2), hidden_state(num_of_layers, batch_size, hidden_state_size(nodesâœ
 
 Then, go into dcrnn_cell.py  
 output_size = 2 * num_units = 128. In order to compute **value**, use -gconv, instead of multiplying in GRU.  
-In gconv cell: the input's dim[2] (64,207,2) and the hidden_state's dim[2] (64,207,64) are concatenated, the final input's dim is (64,207,66(64+2)). The diffusion steps need two adj_mx matrixs to complete the dcrnn and the two matrixs are stored in **supports**(shown in the below pic). There are some steps of reshaping matrixs.  
+In gconv cell: the input's dim[2] (64,207,2) and the hidden_state's dim[2] (64,207,64) are concatenated, the final input's dim is (64,207,66(64+2)). The diffusion steps need two adj_mx matrixs to complete the dcrnn and the two matrixs are stored in **supports**(shown in the below pic). There are some steps of reshaping matrixs, these can adjust the input's/ output's dim.  
 <p align="middle">
   <img src="Images/gdcnn/model_dcrnn_pickle.data-support.png" width="1000" height="170" />  
+</p>  
+
+* **Decoder:**  
+The part is similar with the encoder part. The below pic shows the inner part of the model. And in this repository, you have access to the [Image/dgcnn](https://github.com/tami1082/Traffic-Public-Datasets/tree/main/Images/gdcnn) to find other details of the model.  
+<p align="middle">
+  <img src="Images/gdcnn/model-encode-decode.png" width="975" height="302" />  
 </p>  
