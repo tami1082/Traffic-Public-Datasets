@@ -30,7 +30,12 @@ https://archive.ics.uci.edu/ml/datasets/PEMS-SF
 
 
  ## Pems-03
-The flow data is aggregated to 5 mins, which means there are 12 points in the flow data foe each hour
+The flow data is aggregated to 5 mins, which means there are 12 points in the flow data for each hour
+
+<p align="middle">
+  <img src="Images/PEMSD-3.png" width="537" height="248" />  
+  <img src="Images/PEMSD-3-data.png" width="172" height="218" />  
+</p>  
 
  
  ## Pems-04
@@ -38,9 +43,19 @@ The flow data is aggregated to 5 mins, which means there are 12 points in the fl
 
 Each npz file contains one key, named "data", the shape is (sequence_length, num_of_vertices, num_of_features).
 
+<p align="middle">
+  <img src="Images/PEMSD-4.png" width="590" height="285" />  
+  <img src="Images/PEMSD-4-data.png" width="360" height="238" />  
+</p>   
+
  
  ## Pems-07
 The flow data is aggregated to 5 mins, which means there are 12 points in the flow data foe each hour. This folder should contain two csv files. One file contains the distances(km) between each pair of vertices, it has n rows and n columns, where n is the number of vertices. The other csv file contains n columns and lots of rows, each row represents a time step, each column represents the time series of a vertice.
+
+<p align="middle">
+  <img src="Images/PEMSD-7.png" width="539" height="246" />  
+  <img src="Images/PEMSD-7-data.png" width="269" height="249" />  
+</p>  
 
  ## Pems-07M
 PeMSD7 was collected from Caltrans Performance Measurement System (PeMS) in real-time by over 39, 000 sensor stations, deployed across the major metropolitan areas of California state highway system. The dataset is also aggregated into 5-minute interval from 30-second data samples. We randomly select a medium and a large scale among the District 7 of California containing 228 and 1, 026 stations, labeled as PeMSD7(M) and PeMSD7(L), respectively, as data sources. The time range of PeMSD7 dataset is in the weekdays of May and June of 2012. We select the first month of historical speed records as training set, and the rest serves as validation and test set respectively.
@@ -51,6 +66,11 @@ The flow data is aggregated to 5 mins, which means there are 12 points in the fl
 Each npz file contains one key, named "data", the shape is (sequence_length, num_of_vertices, num_of_features).
 
 There are three kinds of traffic measurements considered in our experiments, including total flow, average speed, and average occupancy. PeMS-04 and PeMS-08 are preprocessed to ensure the distance between any adjacent detector in datasets is longer than 3.5 miles. Finally, there are 307 detectors in the PeMSD4 and 170 detectors in the PeMSD8. The traffic data are aggregated every 5 minutes, so each detector contains 288 data points per day.
+
+<p align="middle">
+  <img src="Images/PEMSD-8.png" width="500" height="265" />  
+  <img src="Images/PEMSD-8-data.png" width="460" height="194" />  
+</p>   
  
  ## BAY-METR-LA
  https://github.com/liyaguang/DCRNN
