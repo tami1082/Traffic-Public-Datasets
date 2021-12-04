@@ -25,7 +25,7 @@ http://www.timeseriesclassification.com/description.php?Dataset=PEMS-SF
 https://archive.ics.uci.edu/ml/datasets/PEMS-SF
 
 <p align="middle">
-  <img src="Images/PEMS-FS.png" width="878" height="102" />  
+  <img src="Images/PEMS-SF.png" width="878" height="102" />  
 </p>  
 
 
